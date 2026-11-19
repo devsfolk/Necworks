@@ -1,0 +1,26 @@
+{
+  "Navigation": {
+    "home": "صفحۂ اول",
+    "machines": "مشینیں",
+    "parts": "پرزے",
+    "knowledge": "معلومات",
+    "about": "تعارف",
+    "contact": "رابطہ",
+    "switchLanguage": "English"
+  },
+  "Common": {
+    "comingSoon": "جلد آ رہا ہے"
+  },
+  "Pages": {
+    "home": "صفحۂ اول",
+    "machines": "مشینیں",
+    "machineDetail": "مشین",
+    "parts": "پرزے",
+    "industryDetail": "صنعت",
+    "projectDetail": "منصوبہ",
+    "knowledge": "معلومات",
+    "knowledgeDetail": "معلوماتی مضمون",
+    "about": "تعارف",
+    "contact": "رابطہ"
+  }
+}

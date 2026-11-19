@@ -1,0 +1,26 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "machines": "Machines",
+    "parts": "Parts",
+    "knowledge": "Knowledge",
+    "about": "About",
+    "contact": "Contact",
+    "switchLanguage": "اردو"
+  },
+  "Common": {
+    "comingSoon": "Coming soon"
+  },
+  "Pages": {
+    "home": "Home",
+    "machines": "Machines",
+    "machineDetail": "Machine",
+    "parts": "Parts",
+    "industryDetail": "Industry",
+    "projectDetail": "Project",
+    "knowledge": "Knowledge",
+    "knowledgeDetail": "Knowledge article",
+    "about": "About",
+    "contact": "Contact"
+  }
+}
