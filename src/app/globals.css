@@ -89,7 +89,8 @@ button { font: inherit; }
 .site-footer__brand { display: inline-flex; align-items: center; gap: 12px; font-size: .92rem; font-weight: 700; }
 .site-footer__mark { width: 38px; height: 38px; }
 .site-footer__nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 18px; }
-.site-footer__note { margin: 0; color: rgb(233 240 248 / 55%); font-size: .8rem; }
+.site-footer__contact { display: grid; gap: 2px; color: rgb(233 240 248 / 72%); font-size: .72rem; font-style: normal; text-align: end; }
+.site-footer__contact a:hover { color: var(--brand-yellow); }
 
 .home-shell { flex: 1; padding-block: 30px 84px; }
 .title-block { display: grid; grid-template-columns: 1.1fr .75fr 1.4fr; margin: 0; border: 1px solid var(--blueprint-line-soft); background: rgb(16 41 71 / 74%); }
@@ -135,6 +136,35 @@ html[lang='ur'] .section-heading h2 { font-family: var(--font-urdu), serif; font
 html[lang='ur'] .drawing-placeholder p { font-family: var(--font-urdu), serif; font-size: .95rem; line-height: 2.1; }
 
 .section-heading { min-width: 0; }
+.section-heading__title { margin: 28px 0 12px; color: #fff; font-family: var(--font-condensed); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 700; line-height: 1.05; }
+html[lang='ur'] .section-heading__title { font-family: var(--font-urdu), serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 400; line-height: 2; }
+.machine-list__description { max-width: 60ch; color: rgb(233 240 248 / 72%); }
+.machine-list { display: grid; gap: 12px; margin: 34px 0 0; padding: 0; list-style: none; }
+.machine-list__item { padding: 18px 20px; border: 1px solid var(--blueprint-line-soft); background: rgb(16 41 71 / 76%); }
+.machine-list__item > p { margin: 9px 0 0; color: rgb(233 240 248 / 70%); }
+.machine-list__link { display: flex; align-items: center; gap: 12px; color: #fff; font-size: 1.15rem; font-weight: 700; }
+.machine-list__link:hover { color: var(--brand-yellow); }
+.machine-list__link small { color: var(--brand-yellow); font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; }
+.machine-list__link > span:last-child { margin-inline-start: auto; color: var(--accent-orange); }
+.machine-detail { max-width: 1000px; }
+.machine-detail__breadcrumbs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; color: rgb(233 240 248 / 65%); font-size: .83rem; }
+.machine-detail__breadcrumbs a:hover { color: var(--brand-yellow); }
+.machine-detail__eyebrow { margin: 34px 0 0; color: var(--brand-yellow); font-family: var(--font-mono); font-size: .75rem; }
+.machine-detail__category { color: var(--brand-yellow); }
+.machine-detail__quote { margin-top: 12px; }
+.machine-detail__section { margin-top: 44px; }
+.machine-detail__section h2 { margin: 0 0 14px; color: #fff; font-family: var(--font-condensed); font-size: 2rem; }
+html[lang='ur'] .machine-detail__section h2 { font-family: var(--font-urdu), serif; font-size: 1.45rem; line-height: 2; }
+.machine-specs__scroll { overflow-x: auto; border: 1px solid var(--blueprint-line-soft); }
+.machine-specs { width: 100%; border-collapse: collapse; text-align: start; }
+.machine-specs tr + tr { border-top: 1px solid var(--blueprint-line-faint); }
+.machine-specs th, .machine-specs td { padding: 12px 16px; text-align: start; }
+.machine-specs th { width: 42%; color: var(--brand-yellow); font-weight: 600; }
+.machine-faq { border-top: 1px solid var(--blueprint-line-soft); }
+.machine-faq details { padding: 14px 4px; border-bottom: 1px solid var(--blueprint-line-soft); }
+.machine-faq summary { color: #fff; font-weight: 700; cursor: pointer; }
+.machine-faq p { margin: 10px 0 0; color: rgb(233 240 248 / 76%); }
+.not-found-page { min-height: 58vh; }
 .floating-contact { position: fixed; z-index: 20; inset-inline-end: 22px; bottom: max(22px, env(safe-area-inset-bottom)); display: grid; gap: 9px; }
 .floating-contact__link { display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid var(--blueprint-line-soft); border-radius: 50%; color: var(--blueprint-line); background: var(--blueprint-panel-raised); box-shadow: 0 7px 20px rgb(0 0 0 / 25%); font-family: var(--font-mono); font-size: .64rem; font-weight: 700; transition: transform .18s ease, background-color .18s ease; }
 .floating-contact__link:hover { transform: translateY(-2px); background: #20466e; }
@@ -169,6 +199,7 @@ html[lang='ur'] .drawing-placeholder p { font-family: var(--font-urdu), serif; f
   .drawing-placeholder { min-height: 260px; }
   .site-footer__inner { align-items: start; flex-direction: column; gap: 16px; padding-block: 24px 28px; }
   .site-footer__nav { justify-content: start; gap: 12px 18px; }
+  .site-footer__contact { text-align: start; }
   .floating-contact { inset-inline-end: 12px; bottom: max(12px, env(safe-area-inset-bottom)); gap: 7px; }
   .floating-contact__link { width: 42px; height: 42px; }
 }

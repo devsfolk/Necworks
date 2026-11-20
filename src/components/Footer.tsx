@@ -1,10 +1,12 @@
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import {Logo} from './Logo';
+import {contactLinks, site} from '@/lib/site';
 
 export function Footer() {
   const t = useTranslations('Navigation');
   const c = useTranslations('Common');
+  const m = useTranslations('MachineContent');
   return (
     <footer className="site-footer">
       <div className="site-footer__inner page-container">
@@ -18,7 +20,12 @@ export function Footer() {
           <Link href="/about">{t('about')}</Link>
           <Link href="/contact">{t('contact')}</Link>
         </nav>
-        <p className="site-footer__note">{c('comingSoon')}</p>
+        <address className="site-footer__contact">
+          <span>{m('location')}</span>
+          {contactLinks.filter(({key}) => key !== 'whatsapp').map(({key, href}) => (
+            <a href={href} key={key}>{key === 'phone' ? site.telephone : site.email}</a>
+          ))}
+        </address>
       </div>
     </footer>
   );

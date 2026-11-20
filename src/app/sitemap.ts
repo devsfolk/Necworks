@@ -1,9 +1,20 @@
 import type {MetadataRoute} from 'next';
-export default function sitemap(): MetadataRoute.Sitemap {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-  const paths = ['', '/machines', '/parts', '/knowledge', '/about', '/contact'];
-  return paths.flatMap((path) => [
-    {url: `${siteUrl}${path || '/'}`},
-    {url: `${siteUrl}/ur${path}`}
-  ]);
+import {getPublishedMachines} from '@/lib/content';
+import {localizedPath} from '@/lib/metadata';
+import {publicSections, site} from '@/lib/site';
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const machines = await getPublishedMachines();
+  const paths = [
+    ...publicSections.map(({path}) => path),
+    ...machines.map(({slug}) => `/machines/${slug}`)
+  ];
+  return paths.map((path) => {
+    const englishUrl = new URL(localizedPath('en', path), site.url).toString();
+    const urduUrl = new URL(localizedPath('ur', path), site.url).toString();
+    return {
+      url: englishUrl,
+      alternates: {languages: {en: englishUrl, ur: urduUrl, 'x-default': englishUrl}}
+    };
+  });
 }

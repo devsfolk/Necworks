@@ -1,13 +1,20 @@
 import {useTranslations} from 'next-intl';
 import {Button} from './Button';
+import {JsonLd} from './JsonLd';
 import {MachineSlider} from './MachineSlider';
 import {TitleBlock} from './TitleBlock';
+import {breadcrumbSchema, organizationSchema, websiteSchema} from '@/lib/schema';
+import {localizedPath, type AppLocale} from '@/lib/metadata';
+import {useLocale} from 'next-intl';
 
 export function HomeHero() {
+  const locale = useLocale() as AppLocale;
   const t = useTranslations('HomeHero');
   const c = useTranslations('Common');
+  const breadcrumbs = breadcrumbSchema([{name: c('companyName'), path: localizedPath(locale, '/')}]);
   return (
     <main className="home-shell page-container">
+      <JsonLd data={[organizationSchema(), websiteSchema(locale), breadcrumbs]} />
       <TitleBlock
         company={c('companyName')}
         sheet={t('sheetValue')}

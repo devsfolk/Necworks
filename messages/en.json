@@ -51,5 +51,40 @@
     "whatsapp": "WhatsApp",
     "phone": "Call NEC",
     "email": "Email NEC"
+  },
+  "MachineContent": {
+    "machineList": "Machine directory",
+    "machineDetail": "Machine information",
+    "specifications": "Specifications",
+    "parts": "Parts",
+    "faq": "Frequently asked questions",
+    "getQuote": "Ask about this machine",
+    "noMachines": "Machine information will be added here.",
+    "company": "National Engineering Co.",
+    "location": "Karachi, Pakistan",
+    "draft": "Draft",
+    "breadcrumbs": "Breadcrumbs",
+    "machineListDescription": "Machine information from National Engineering Co."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The requested page was not found.",
+    "home": "Return to home"
+  },
+  "Seo": {
+    "pages": {
+      "home": {"title":"National Engineering Co. | Home","description":"Homepage information for National Engineering Co."},
+      "machines": {"title":"Machines | National Engineering Co.","description":"Machine information from National Engineering Co."},
+      "machineDetail": {"title":"Machine | National Engineering Co.","description":"Machine information from National Engineering Co."},
+      "parts": {"title":"Parts | National Engineering Co.","description":"Parts information from National Engineering Co."},
+      "industries": {"title":"Industries | National Engineering Co.","description":"Industry information from National Engineering Co."},
+      "industryDetail": {"title":"Industry | National Engineering Co.","description":"Industry information from National Engineering Co."},
+      "projects": {"title":"Project | National Engineering Co.","description":"Project information from National Engineering Co."},
+      "knowledge": {"title":"Knowledge | National Engineering Co.","description":"Knowledge articles from National Engineering Co."},
+      "knowledgeDetail": {"title":"Knowledge article | National Engineering Co.","description":"Information from National Engineering Co."},
+      "about": {"title":"About | National Engineering Co.","description":"Information about National Engineering Co."},
+      "contact": {"title":"Contact | National Engineering Co.","description":"Contact information for National Engineering Co."},
+      "notFound": {"title":"Page not found | National Engineering Co.","description":"The requested page was not found."}
+    }
   }
 }

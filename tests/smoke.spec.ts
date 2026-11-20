@@ -52,3 +52,57 @@ test('machine selection updates the heading and quote destination', async ({page
   await expect(page.getByRole('heading', {name: 'Circular Loom'})).toBeVisible();
   await expect(page.getByRole('link', {name: 'Get a Quote'}).last()).toHaveAttribute('href', '/contact?machine=circular-loom');
 });
+
+test('localized canonical and hreflang links are present', async ({page}) => {
+  await page.goto('/');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'http://localhost:3000');
+  await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'http://localhost:3000');
+  await expect(page.locator('link[rel="alternate"][hreflang="ur"]')).toHaveAttribute('href', 'http://localhost:3000/ur');
+  await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute('href', 'http://localhost:3000');
+
+  await page.goto('/ur');
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'http://localhost:3000/ur');
+  await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'http://localhost:3000');
+  await expect(page.locator('link[rel="alternate"][hreflang="ur"]')).toHaveAttribute('href', 'http://localhost:3000/ur');
+});
+
+test('homepage includes Organization JSON-LD', async ({page}) => {
+  await page.goto('/');
+  const scripts = page.locator('script[type="application/ld+json"]');
+  const jsonLd = await scripts.allTextContents();
+  const organization = jsonLd.flatMap((content) => JSON.parse(content)).find((item) => item['@type'] === 'Organization');
+  expect(organization).toMatchObject({
+    name: 'National Engineering Co.',
+    telephone: '+923444850161',
+    email: 'nationalengineeringco0@gmail.com',
+    address: {addressLocality: 'Karachi', addressCountry: 'PK'}
+  });
+  expect(organization).not.toHaveProperty('sameAs');
+});
+
+test('llms.txt returns plain text', async ({request}) => {
+  const response = await request.get('/llms.txt');
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('text/plain');
+  expect(await response.text()).toContain('National Engineering Co.');
+});
+
+test('draft machine detail is localized and noindex', async ({page, request}) => {
+  for (const path of ['/machines/mother-baby-granulator', '/ur/machines/mother-baby-granulator']) {
+    const response = await request.get(path);
+    expect(response.status()).toBe(200);
+    await page.goto(path);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+  }
+});
+
+test('unknown machine slug returns 404', async ({request}) => {
+  expect((await request.get('/machines/not-a-machine')).status()).toBe(404);
+  expect((await request.get('/ur/machines/not-a-machine')).status()).toBe(404);
+});
+
+test('sitemap excludes draft machine pages', async ({request}) => {
+  const response = await request.get('/sitemap.xml');
+  expect(response.status()).toBe(200);
+  expect(await response.text()).not.toContain('mother-baby-granulator');
+});

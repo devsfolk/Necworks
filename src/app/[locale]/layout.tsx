@@ -7,6 +7,7 @@ import {routing} from '@/i18n/routing';
 import {Header} from '@/components/Header';
 import {Footer} from '@/components/Footer';
 import {FloatingContactButtons} from '@/components/FloatingContactButtons';
+import {site} from '@/lib/site';
 import '../globals.css';
 
 const urduFont = Noto_Nastaliq_Urdu({subsets: ['arabic'], weight: ['400'], variable: '--font-urdu'});
@@ -15,8 +16,12 @@ const bodyFont = Inter({subsets: ['latin'], variable: '--font-body'});
 const drawingFont = JetBrains_Mono({subsets: ['latin'], variable: '--font-drawing'});
 
 export const metadata: Metadata = {
-  title: 'National Engineering Co.',
-  description: 'National Engineering Co. website'
+  metadataBase: new URL(site.url),
+  icons: {
+    icon: [{url: site.iconPath, type: 'image/svg+xml'}],
+    shortcut: [{url: site.iconPath, type: 'image/svg+xml'}],
+    apple: [{url: site.iconPath, type: 'image/svg+xml'}]
+  }
 };
 
 export function generateStaticParams() {
