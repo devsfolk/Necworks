@@ -3,24 +3,53 @@
     "home": "Home",
     "machines": "Machines",
     "parts": "Parts",
+    "industries": "Industries",
     "knowledge": "Knowledge",
     "about": "About",
     "contact": "Contact",
-    "switchLanguage": "اردو"
+    "switchLanguage": "اردو",
+    "getQuote": "Get a Quote",
+    "menu": "Menu",
+    "primaryNavigation": "Primary navigation"
   },
   "Common": {
-    "comingSoon": "Coming soon"
+    "comingSoon": "Coming soon",
+    "companyName": "National Engineering Co.",
+    "footerNavigation": "Footer navigation"
   },
   "Pages": {
     "home": "Home",
     "machines": "Machines",
     "machineDetail": "Machine",
     "parts": "Parts",
+    "industries": "Industries",
     "industryDetail": "Industry",
     "projectDetail": "Project",
     "knowledge": "Knowledge",
     "knowledgeDetail": "Knowledge article",
     "about": "About",
     "contact": "Contact"
+  },
+  "HomeHero": {
+    "eyebrow": "National Engineering Co. / Home",
+    "headline": "Homepage headline placeholder",
+    "description": "Introductory copy will appear here.",
+    "getQuote": "Get a Quote",
+    "viewMachines": "View Machines",
+    "machineSelector": "Machine selector",
+    "selectedMachine": "Selected machine",
+    "getQuoteForMachine": "Get a Quote",
+    "drawingComingSoon": "Drawing coming soon",
+    "companyLabel": "Company",
+    "sheetLabel": "Sheet",
+    "titleLabel": "Title",
+    "sheetValue": "Home",
+    "titleValue": "Homepage shell"
+  },
+  "Contacts": {
+    "contactOptions": "Contact options",
+    "whatsapp": "WhatsApp",
+    "phone": "Call NEC",
+    "email": "Email NEC"
   }
 }

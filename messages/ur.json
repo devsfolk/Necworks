@@ -3,24 +3,53 @@
     "home": "صفحۂ اول",
     "machines": "مشینیں",
     "parts": "پرزے",
+    "industries": "صنعتیں",
     "knowledge": "معلومات",
     "about": "تعارف",
     "contact": "رابطہ",
-    "switchLanguage": "English"
+    "switchLanguage": "English",
+    "getQuote": "قیمت معلوم کریں",
+    "menu": "مینو",
+    "primaryNavigation": "بنیادی نیویگیشن"
   },
   "Common": {
-    "comingSoon": "جلد آ رہا ہے"
+    "comingSoon": "جلد آ رہا ہے",
+    "companyName": "نیشنل انجینئرنگ کمپنی",
+    "footerNavigation": "فوٹر روابط"
   },
   "Pages": {
     "home": "صفحۂ اول",
     "machines": "مشینیں",
     "machineDetail": "مشین",
     "parts": "پرزے",
+    "industries": "صنعتیں",
     "industryDetail": "صنعت",
     "projectDetail": "منصوبہ",
     "knowledge": "معلومات",
     "knowledgeDetail": "معلوماتی مضمون",
     "about": "تعارف",
     "contact": "رابطہ"
+  },
+  "HomeHero": {
+    "eyebrow": "نیشنل انجینئرنگ کمپنی / صفحۂ اول",
+    "headline": "صفحۂ اول کی سرخی کا عارضی متن",
+    "description": "تعارفی متن یہاں شامل کیا جائے گا۔",
+    "getQuote": "قیمت معلوم کریں",
+    "viewMachines": "مشینیں دیکھیں",
+    "machineSelector": "مشین کا انتخاب",
+    "selectedMachine": "منتخب مشین",
+    "getQuoteForMachine": "اس مشین کے لیے قیمت معلوم کریں",
+    "drawingComingSoon": "ڈرائنگ جلد آئے گی",
+    "companyLabel": "کمپنی",
+    "sheetLabel": "شیٹ",
+    "titleLabel": "عنوان",
+    "sheetValue": "صفحۂ اول",
+    "titleValue": "صفحۂ اول کا خاکہ"
+  },
+  "Contacts": {
+    "contactOptions": "رابطے کے طریقے",
+    "whatsapp": "واٹس ایپ",
+    "phone": "فون کریں",
+    "email": "ای میل کریں"
   }
 }

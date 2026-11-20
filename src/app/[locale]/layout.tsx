@@ -2,14 +2,17 @@ import type {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {hasLocale, NextIntlClientProvider} from 'next-intl';
 import {getMessages, setRequestLocale} from 'next-intl/server';
-import {Noto_Nastaliq_Urdu, Inter} from 'next/font/google';
+import {Barlow_Condensed, Inter, JetBrains_Mono, Noto_Nastaliq_Urdu} from 'next/font/google';
 import {routing} from '@/i18n/routing';
 import {Header} from '@/components/Header';
 import {Footer} from '@/components/Footer';
+import {FloatingContactButtons} from '@/components/FloatingContactButtons';
 import '../globals.css';
 
 const urduFont = Noto_Nastaliq_Urdu({subsets: ['arabic'], weight: ['400'], variable: '--font-urdu'});
-const englishFont = Inter({subsets: ['latin'], variable: '--font-english'});
+const headingFont = Barlow_Condensed({subsets: ['latin'], weight: ['500', '600', '700'], variable: '--font-heading'});
+const bodyFont = Inter({subsets: ['latin'], variable: '--font-body'});
+const drawingFont = JetBrains_Mono({subsets: ['latin'], variable: '--font-drawing'});
 
 export const metadata: Metadata = {
   title: 'National Engineering Co.',
@@ -27,10 +30,15 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
   const messages = await getMessages();
   const isUrdu = locale === 'ur';
   return (
-    <html lang={locale} dir={isUrdu ? 'rtl' : 'ltr'} className={`${englishFont.variable} ${isUrdu ? urduFont.variable : ''}`}>
-      <body className={isUrdu ? 'font-[family-name:var(--font-urdu)]' : 'font-[family-name:var(--font-english)]'}>
+    <html lang={locale} dir={isUrdu ? 'rtl' : 'ltr'} className={`${headingFont.variable} ${bodyFont.variable} ${drawingFont.variable} ${urduFont.variable}`}>
+      <body className={isUrdu ? 'font-urdu' : 'font-body'}>
         <NextIntlClientProvider messages={messages}>
-          <Header />{children}<Footer />
+          <div className="app-shell">
+            <Header />
+            {children}
+            <Footer />
+          </div>
+          <FloatingContactButtons />
         </NextIntlClientProvider>
       </body>
     </html>

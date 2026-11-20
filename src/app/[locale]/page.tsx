@@ -1,2 +1,5 @@
-import {PagePlaceholder} from '@/components/PagePlaceholder';
-export default function HomePage() { return <PagePlaceholder titleKey="home" />; }
+import {HomeHero} from '@/components/HomeHero';
+
+export default function HomePage() {
+  return <HomeHero />;
+}
