@@ -23,7 +23,7 @@ function NavigationLinks() {
 function LanguageSwitch() {
   const t = useTranslations('Navigation');
   const locale = useLocale();
-  return <Link href="/" locale={locale === 'en' ? 'ur' : 'en'} className="language-switch">{t('switchLanguage')}</Link>;
+  return <Link href="/" locale={locale === 'en' ? 'ur' : 'en'} className="language-switch" data-track="language_switch">{t('switchLanguage')}</Link>;
 }
 
 export function Header() {
@@ -35,7 +35,7 @@ export function Header() {
         <nav className="site-nav" aria-label={t('primaryNavigation')}><NavigationLinks /></nav>
         <div className="site-header__actions">
           <LanguageSwitch />
-          <Button href="/contact" variant="primary" className="header-quote">{t('getQuote')}</Button>
+          <Button href="/contact" variant="primary" className="header-quote" data-track="quote_click">{t('getQuote')}</Button>
         </div>
         <details className="mobile-menu">
           <summary className="mobile-menu__toggle">
@@ -46,7 +46,7 @@ export function Header() {
             <nav className="mobile-menu__links" aria-label={t('primaryNavigation')}><NavigationLinks /></nav>
             <div className="mobile-menu__actions">
               <LanguageSwitch />
-              <Button href="/contact" variant="primary">{t('getQuote')}</Button>
+              <Button href="/contact" variant="primary" data-track="quote_click">{t('getQuote')}</Button>
             </div>
           </div>
         </details>

@@ -29,6 +29,8 @@ export function MachineSlider() {
             aria-selected={item.slug === machine.slug}
             aria-controls="machine-panel"
             className="machine-slider__tab"
+            data-track="machine_tab_click"
+            data-track-label={item.slug}
             key={item.slug}
             onClick={() => setActiveSlug(item.slug)}
           >
@@ -39,7 +41,7 @@ export function MachineSlider() {
       <div className="machine-slider__panel" id="machine-panel" role="tabpanel" aria-labelledby={`machine-tab-${machine.slug}`}>
         <div className="machine-slider__heading">
           <SectionHeading eyebrow={t('selectedMachine')} title={name} />
-          <Link href={{pathname: '/contact', query: {machine: machine.slug}}} className="machine-slider__quote">
+          <Link href={{pathname: '/contact', query: {machine: machine.slug}}} className="machine-slider__quote" data-track="quote_click">
             {t('getQuoteForMachine')} <span aria-hidden="true">↗</span>
           </Link>
         </div>

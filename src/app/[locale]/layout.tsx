@@ -7,6 +7,8 @@ import {routing} from '@/i18n/routing';
 import {Header} from '@/components/Header';
 import {Footer} from '@/components/Footer';
 import {FloatingContactButtons} from '@/components/FloatingContactButtons';
+import {AnalyticsEvents} from '@/components/AnalyticsEvents';
+import {Analytics} from '@vercel/analytics/next';
 import {site} from '@/lib/site';
 import '../globals.css';
 
@@ -44,6 +46,8 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
             <Footer />
           </div>
           <FloatingContactButtons />
+          <AnalyticsEvents />
+          <Analytics />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -32,6 +32,7 @@ test('English home page includes a language switch link', async ({page}) => {
   await page.goto('/');
   const languageSwitches = page.locator('a[href="/ur"]');
   await expect(languageSwitches).toHaveCount(2);
+  await expect(languageSwitches.first()).toHaveAttribute('data-track', 'language_switch');
   await expect(languageSwitches.first()).toBeVisible();
   await expect(languageSwitches.last()).toBeHidden();
 });
@@ -41,7 +42,7 @@ test('design shell exposes header, footer, WhatsApp, and machine tabs in both lo
     await page.goto(path);
     await expect(page.locator('header.site-header')).toBeVisible();
     await expect(page.locator('footer.site-footer')).toBeVisible();
-    await expect(page.locator('a[href="https://wa.me/923444850161"]')).toBeVisible();
+    await expect(page.locator('a[href="https://wa.me/923444850161"][data-track="whatsapp_click"]')).toBeVisible();
     await expect(page.getByRole('tab')).toHaveCount(6);
   }
 });

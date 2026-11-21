@@ -17,6 +17,7 @@
     "verify": "npm run typecheck && npm run lint && npm run check:encoding && npm run check:content && npm run build && npm run test:smoke"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
     "next": "^16.0.0",
     "next-intl": "^4.0.0",
     "react": "^19.0.0",

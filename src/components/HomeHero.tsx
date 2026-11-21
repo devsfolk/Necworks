@@ -27,7 +27,7 @@ export function HomeHero() {
           <h1 id="home-title">{t('headline')}</h1>
           <p className="home-hero__description">{t('description')}</p>
           <div className="home-hero__actions">
-            <Button href="/contact" variant="primary">{t('getQuote')}</Button>
+            <Button href="/contact" variant="primary" data-track="quote_click">{t('getQuote')}</Button>
             <Button href="/machines" variant="outline">{t('viewMachines')}</Button>
           </div>
         </div>

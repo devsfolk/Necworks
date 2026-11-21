@@ -66,7 +66,7 @@ export default async function MachinePage({params}: RouteProps) {
       <h1 className="section-heading__title">{name}</h1>
       {machine.category && <p className="machine-detail__category">{machine.category}</p>}
       {summary && <p className="machine-list__description">{summary}</p>}
-      <a className="button button--primary machine-detail__quote" href={quote.toString()}>{t('getQuote')}</a>
+      <a className="button button--primary machine-detail__quote" href={quote.toString()} data-track="whatsapp_click">{t('getQuote')}</a>
 
       {machine.specs.length > 0 && (
         <section className="machine-detail__section" aria-labelledby="machine-specifications">
