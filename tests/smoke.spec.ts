@@ -28,6 +28,11 @@ test('robots and sitemap routes return 200', async ({request}) => {
   expect((await request.get('/sitemap.xml')).status()).toBe(200);
 });
 
+test('home page omits Google Analytics when no measurement ID is configured', async ({page}) => {
+  await page.goto('/');
+  expect(await page.content()).not.toContain('googletagmanager.com');
+});
+
 test('English home page includes a language switch link', async ({page}) => {
   await page.goto('/');
   const languageSwitches = page.locator('a[href="/ur"]');

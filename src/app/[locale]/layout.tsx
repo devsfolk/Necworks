@@ -8,7 +8,7 @@ import {Header} from '@/components/Header';
 import {Footer} from '@/components/Footer';
 import {FloatingContactButtons} from '@/components/FloatingContactButtons';
 import {AnalyticsEvents} from '@/components/AnalyticsEvents';
-import {Analytics} from '@vercel/analytics/next';
+import {GoogleAnalytics} from '@next/third-parties/google';
 import {site} from '@/lib/site';
 import '../globals.css';
 
@@ -47,7 +47,9 @@ export default async function LocaleLayout({children, params}: Readonly<{childre
           </div>
           <FloatingContactButtons />
           <AnalyticsEvents />
-          <Analytics />
+          {process.env.NODE_ENV === 'production' && process.env.NEXT_PUBLIC_GA_ID ? (
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+          ) : null}
         </NextIntlClientProvider>
       </body>
     </html>
