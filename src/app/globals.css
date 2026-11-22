@@ -153,6 +153,14 @@ html[lang='ur'] .section-heading__title { font-family: var(--font-urdu), serif; 
 .machine-detail__category { color: var(--brand-yellow); }
 .machine-detail__quote { margin-top: 12px; }
 .machine-detail__section { margin-top: 44px; }
+.machine-media { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px; }
+.media-image { position: relative; min-width: 0; margin: 0; overflow: hidden; border: 1px solid var(--blueprint-line-soft); background: var(--blueprint-panel); }
+.media-image img { display: block; width: 100%; height: auto; background-position: center; background-size: cover; }
+.media-image__label { position: absolute; inset-block-start: 10px; inset-inline-start: 10px; padding: 3px 8px; color: #fff; background: rgb(11 31 58 / 88%); font-family: var(--font-mono); font-size: .7rem; }
+.video-embed { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--blueprint-line-soft); background-color: var(--blueprint-panel); }
+.video-embed--facade { display: grid; place-items: center; background-position: center; background-size: cover; }
+.video-embed__play { display: grid; width: 64px; height: 64px; place-items: center; border: 1px solid var(--blueprint-line); border-radius: 50%; color: #fff; background: rgb(11 31 58 / 82%); cursor: pointer; font-size: 1.35rem; }
+.video-embed__play span { transform: translateX(2px); }
 .machine-detail__section h2 { margin: 0 0 14px; color: #fff; font-family: var(--font-condensed); font-size: 2rem; }
 html[lang='ur'] .machine-detail__section h2 { font-family: var(--font-urdu), serif; font-size: 1.45rem; line-height: 2; }
 .machine-specs__scroll { overflow-x: auto; border: 1px solid var(--blueprint-line-soft); }

@@ -13,7 +13,13 @@ const machineSchema = z.object({
   specs: z.array(z.object({label_en: z.string(), label_ur: z.string(), value: z.string()})),
   parts: z.array(z.string()),
   faq: z.array(z.object({q_en: z.string(), a_en: z.string(), q_ur: z.string(), a_ur: z.string()})),
-  media: z.array(z.string()),
+  media: z.array(z.object({
+    file: z.string().min(1),
+    alt_en: z.string().min(1),
+    alt_ur: z.string().min(1),
+    kind: z.enum(['photo', 'illustration', 'video']),
+    youtube_id: z.string().min(1).optional()
+  })),
   published_at: z.string().datetime().optional()
 });
 

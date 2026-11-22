@@ -13,8 +13,10 @@
     "typecheck": "tsc --noEmit",
     "check:encoding": "node scripts/check-encoding.mjs",
     "check:content": "node scripts/check-content.mjs",
+    "media": "node scripts/optimize-media.mjs",
+    "test:media": "node scripts/test-media.mjs",
     "test:smoke": "playwright test",
-    "verify": "npm run typecheck && npm run lint && npm run check:encoding && npm run check:content && npm run build && npm run test:smoke"
+    "verify": "npm run typecheck && npm run lint && npm run check:encoding && npm run check:content && npm run test:media && npm run build && npm run test:smoke"
   },
   "dependencies": {
     "@next/third-parties": "^16.4.6",
@@ -32,6 +34,7 @@
     "@types/react-dom": "^19.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.0.0",
+    "sharp": "^0.35.5",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.0.0"
   },

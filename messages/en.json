@@ -64,6 +64,9 @@
     "location": "Karachi, Pakistan",
     "draft": "Draft",
     "breadcrumbs": "Breadcrumbs",
+    "mediaGallery": "Media gallery",
+    "illustration": "Illustration",
+    "playVideo": "Play video",
     "machineListDescription": "Machine information from National Engineering Co."
   },
   "NotFound": {

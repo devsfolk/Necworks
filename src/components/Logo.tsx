@@ -1,4 +1,4 @@
-import Image from 'next/image';
+/* eslint-disable @next/next/no-img-element */
 
 type LogoProps = {
   variant?: 'full' | 'mark';
@@ -8,12 +8,12 @@ type LogoProps = {
 export function Logo({variant = 'full', className}: LogoProps) {
   const isFull = variant === 'full';
   return (
-    <Image
+    <img
       src={isFull ? '/media/brand/nec-logo.svg' : '/media/brand/nec-mark.svg'}
       alt={isFull ? 'NEC — National Engineering Co.' : 'NEC'}
       width={isFull ? 72 : 48}
       height={isFull ? 72 : 48}
-      priority={isFull}
+      loading={isFull ? 'eager' : 'lazy'}
       className={className}
     />
   );

@@ -1,7 +1,7 @@
 'use client';
 
+/* eslint-disable @next/next/no-img-element */
 import {useState} from 'react';
-import Image from 'next/image';
 import {useLocale, useTranslations} from 'next-intl';
 import {Link} from '@/i18n/navigation';
 import heroMachines from '../../content/hero-machines.json';
@@ -47,7 +47,7 @@ export function MachineSlider() {
         </div>
         <div className="drawing-frame">
           {machine.drawing ? (
-            <Image src={machine.drawing} alt={name} width={1200} height={800} className="drawing-frame__image" />
+            <img src={machine.drawing} alt={name} className="drawing-frame__image" />
           ) : (
             <div className="drawing-placeholder">
               <div className="drawing-placeholder__inner" aria-hidden="true">

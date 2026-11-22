@@ -7,6 +7,9 @@ import {getMachine, getMachines} from '@/lib/content';
 import {createPageMetadata, getLocalizedSeo, type AppLocale, localizedPath} from '@/lib/metadata';
 import {breadcrumbSchema, faqSchema, productSchema} from '@/lib/schema';
 import {site} from '@/lib/site';
+import {MediaImage} from '@/components/MediaImage';
+import {VideoEmbed} from '@/components/VideoEmbed';
+import {getMediaManifest, mediaPath} from '@/lib/media';
 
 type RouteProps = {params: Promise<{locale: AppLocale; slug: string}>};
 
@@ -51,6 +54,44 @@ export default async function MachinePage({params}: RouteProps) {
   ]);
   const quote = new URL(site.whatsapp);
   quote.searchParams.set('text', `${t('getQuote')}: ${name}`);
+  const mediaManifest = machine.media.length > 0 ? await getMediaManifest('machines', slug) : null;
+  const mediaElements = machine.media.flatMap((item, index) => {
+    const alt = locale === 'ur' ? item.alt_ur : item.alt_en;
+    if (item.kind === 'video') {
+      const posterName = `${item.file.replace(/\.[^.]+$/, '')}-poster.jpg`;
+      const posterImage = mediaManifest?.images.find((image) => image.source === posterName);
+      const posterVariant = posterImage?.variants.at(-1);
+      const poster = posterVariant
+        ? mediaPath('machines', slug, posterVariant.file)
+        : item.youtube_id
+          ? `https://i.ytimg.com/vi/${encodeURIComponent(item.youtube_id)}/hqdefault.jpg`
+          : '';
+      if (!poster) return [];
+      return [(
+        <VideoEmbed
+          key={`${item.file}-${index}`}
+          mode={item.youtube_id ? 'youtube' : 'local'}
+          title={alt}
+          playLabel={t('playVideo')}
+          poster={poster}
+          youtubeId={item.youtube_id}
+          src={item.youtube_id ? undefined : mediaPath('machines', slug, item.file)}
+        />
+      )];
+    }
+    const image = mediaManifest?.images.find((entry) => entry.source === item.file);
+    if (!image) return [];
+    return [(
+      <MediaImage
+        key={`${item.file}-${index}`}
+        image={image}
+        srcPrefix={mediaPath('machines', slug, '')}
+        alt={alt}
+        illustrationLabel={t('illustration')}
+        isIllustration={item.kind === 'illustration'}
+      />
+    )];
+  });
 
   return (
     <main className="home-shell page-container machine-detail">
@@ -67,6 +108,12 @@ export default async function MachinePage({params}: RouteProps) {
       {machine.category && <p className="machine-detail__category">{machine.category}</p>}
       {summary && <p className="machine-list__description">{summary}</p>}
       <a className="button button--primary machine-detail__quote" href={quote.toString()} data-track="whatsapp_click">{t('getQuote')}</a>
+
+      {mediaElements.length > 0 && (
+        <section className="machine-detail__section machine-media" aria-label={t('mediaGallery')}>
+          {mediaElements}
+        </section>
+      )}
 
       {machine.specs.length > 0 && (
         <section className="machine-detail__section" aria-labelledby="machine-specifications">

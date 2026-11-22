@@ -99,6 +99,7 @@ test('draft machine detail is localized and noindex', async ({page, request}) =>
     expect(response.status()).toBe(200);
     await page.goto(path);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/);
+    await expect(page.locator('.machine-media')).toHaveCount(0);
   }
 });
 
